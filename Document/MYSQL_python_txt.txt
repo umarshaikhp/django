@@ -1,0 +1,41 @@
+-*- MySQL With Python and Django -*-
+
+
+1)mysql connector
+
+>pip install mysql-connector-python (install this at machine level)
+>pip install mysqlclient // if its not getting install the do following steps (install this at venv level)
+-Go to: https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient 
+download wheel as per your version of python and desktop 32bit or 64bit and install virtual level: 
+>pip install <your downloaded file name will come here> hit enter then 
+your mysqlclient will get installed.
+
+- After successfully installing above if stil get error then run the following query to your MySQL database
+>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass@123';
+
+
+-Settings MySQL with Django
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # -changes made here
+        'NAME': 'db1',
+        'USER': 'root',
+        'PASSWORD': 'pass@123',
+        'HOST': 'localhost'
+    }
+}
+
+-Settings PostgreSQL with Django
+
+'default': {
+        'ENGINE': 'django.db.backends.postgresql', #-changes made here
+        'NAME': 'travello',
+        'USER': 'postgres',
+        'PASSWORD': 'pass@123',
+        'HOST': 'localhost'
+    }
+	>python manage.py makemigrations(it will create migration file)
+	>python manage.py migrate(it will create table and fields)
+>for creating super user go to this below link.
+https://docs.djangoproject.com/en/1.8/intro/tutorial02/

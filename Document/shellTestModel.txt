@@ -1,0 +1,29 @@
+try in python shell
+1)cd ~ {it is used to come in home directory}
+2)cd projectname(goes to your project)
+3)python manage.py shell(open python shell)it is used to test models(example:Field) means values insert in the product table or not 
+used see particular object of product
+#why we not write in  django admin because this thing we will write in the python programm and then pull and then we are able to write logic
+that's why we write in the power shell.
+#it is used to testing python code because eventually we inject our python code in the project
+i)from shop.models import product
+ii)product.object.all()(it will print all product object)
+iii)from django.utils import timezone
+iii)myprod = product(product_name = "mouse",category="computer",subcategory="devices",price=12,des="yeh chooha hai",pub_date=timezone.now())
+iv)myprod.save()
+v)myprod.product_id
+vi)myprod.product_name
+vii)product.objects.all()
+viii)product.object.get(product_name="mouse")(to get a particular object from the product table)
+xi)a = product.objects.get(product_name="mouse")
+x)a.category
+
+
+You can also change a admin password programmatically, using set_password():(change password on shell)
+>>> from django.contrib.auth.models import User
+>>> u = User.objects.get(username='john')
+>>> u.set_password('new password')
+>>> u.save()
+
+
+ 
