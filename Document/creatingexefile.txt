@@ -1,0 +1,7 @@
+for creating pytho.exe file
+1)create folder
+2)inside folder create program file
+3)pip install pyinstaller
+4)  pyinstaller main.txt (create your programs .exe file)
+5)write main.exe(inside dist inside main )
+6)inside your program folder(pyinstaller --onefile program file name)
