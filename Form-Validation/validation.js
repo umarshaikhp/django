@@ -20,6 +20,7 @@ window.onload = function () {
             console.log("name is valid");
 
             user.classList.remove('is-invalid');
+            user.classList.add('is-valid');
 
         }
         else {
@@ -40,6 +41,8 @@ window.onload = function () {
             validEmail = true;
             console.log("email is valid");
             email.classList.remove('is-invalid');
+            email.classList.add('is-valid');
+
 
         }
         else {
@@ -60,6 +63,8 @@ window.onload = function () {
             validPhone = true;
             console.log("phone is valid");
             phone.classList.remove('is-invalid');
+            phone.classList.add('is-valid');
+
 
         }
 
