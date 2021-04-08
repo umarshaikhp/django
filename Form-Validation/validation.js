@@ -9,7 +9,6 @@ window.onload = function () {
     $('#success').hide();
     $('#failure').hide();
 
-
     user.addEventListener('blur', () => {
         console.log(user);
         let regex = /^[A-Za-z]([0-10A-Za-z]){2,10}$/;
@@ -19,11 +18,14 @@ window.onload = function () {
             validUser = true;
             //validate user here
             console.log("name is valid");
+
             user.classList.remove('is-invalid');
 
         }
         else {
             console.log("name is not valid");
+            let submit = document.getElementById("submit").disabled = true;
+
             user.classList.add('is-invalid');
             validUser = false;
 
@@ -42,6 +44,8 @@ window.onload = function () {
         }
         else {
             console.log("email is not valid");
+            let submit = document.getElementById("submit").disabled = true;
+
             email.classList.add('is-invalid');
             validEmail = false;
 
@@ -58,21 +62,32 @@ window.onload = function () {
             phone.classList.remove('is-invalid');
 
         }
+
         else {
             console.log("phone is not valid");
+            let submit = document.getElementById("submit").disabled = true;
+
             phone.classList.add('is-invalid');
             validPhone = false;
 
         }
     })
 
+    message.onmouseout = function () {
+        console.log("messager")
+        if (validEmail && validPhone && validUser) {
+            let submit = document.getElementById("submit").disabled = false;
+        }
+    }
+
     let submit = document.getElementById('submit');
     //submit Your form here
     submit.addEventListener('click', (e) => {
         // e.preventDefault();
         console.log("submit button is click");
-        console.log(validPhone,validUser,validEmail);
+        console.log(validPhone, validUser, validEmail);
         if (validEmail && validPhone && validUser) {
+
             console.log("phone,email and user are valid submit the form");
             let success = document.getElementById('success');
 
@@ -81,15 +96,13 @@ window.onload = function () {
             $('#failure').hide();
             $('#success').show();
         }
-        else{
+        else {
             console.log('one of phone or email or user are not valid.Hence not submitted the form. please correct the error and try again');
             let failure = document.getElementById('failure');
             //success.classList.remove('show');
             failure.classList.add('show');
             $('#success').hide();
             $('#failure').show();
-
-
 
         }
     })

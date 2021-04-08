@@ -32,7 +32,7 @@
         <h1>Dragon Travel Desk</h1>
         <div class="form-group mb-2">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control is-invalid" name="name" aria-describedby="invalid" id="name"
+            <input type="text" class="form-control is-invalid" name="name" aria-describedby="validname" id="name"
                 placeholder="Enter Your Name">
             <small id="validname" class="form-text text-muted invalid-feedback">
                 Your username should be 2-10 chracter longs and should not start with number
@@ -41,7 +41,7 @@
 
         <div class="form-group mb-2">
             <label for="email" class="form-label">Email address</label>
-            <input type="text" class="form-control" name="email" id="email" placeholder="Enter Your Email">
+            <input type="text" class="form-control" name="email" aria-invalid="valiemail" id="email" placeholder="Enter Your Email">
             <small id="validemail" class="form-text text-muted invalid-feedback">
                 Your email must be a valid email
             </small>
@@ -72,7 +72,7 @@
 
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Enter Any Other Messages</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="message" rows="3"></textarea>
         </div>
 
         <button id="submit" class="btn btn-primary">Submit</button>
