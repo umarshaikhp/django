@@ -45,8 +45,8 @@
             </form>
 
             {% if user.is_authenticated %}
-            <p><a href="accounts/logout">Logout</a></p>
-            <p>Hello{{user.first_name}}</p>
+            <p class="ml-3"><a href="accounts/logout">Logout</a></p>
+            <p class="mx-3">Hello{{user.first_name}}</p>
 
             {% else %}
             <p class="mx-2 mb-1"><a href="accounts/register">Register</a></p>
