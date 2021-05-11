@@ -45,12 +45,12 @@
             </form>
 
             {% if user.is_authenticated %}
-            <p class="ml-3"><a href="accounts/logout">Logout</a></p>
-            <p class="mx-3">Hello{{user.first_name}}</p>
+            <p style="color: rgb(240, 255, 240);" class="ml-3 mb-1"><a href="accounts/logout">Logout</a></p>
+            <p style="color: rgb(238, 252, 238);" class="mx-3 mb-1">Hello {{user.first_name}}</p>
 
             {% else %}
-            <p class="mx-2 mb-1"><a href="accounts/register">Register</a></p>
-            <p class="mx-3 mb-1"><a href="accounts/login">Login</a></p>
+            <p style="color: rgb(240, 255, 240);" class="mx-2 ml-3 mb-1"><a href="accounts/register">Register</a></p>
+            <p class="mx-2 mb-1"><a href="accounts/login">Login</a></p>
             {% endif %}
 
 
