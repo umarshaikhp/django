@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/shop">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/shop/about">About Us</a>
@@ -45,12 +45,12 @@
             </form>
 
             {% if user.is_authenticated %}
-            <p style="color: rgb(240, 255, 240);" class="ml-3 mb-1"><a href="accounts/logout">Logout</a></p>
+            <p style="color: rgb(226, 243, 226);" class="ml-3 mb-1"><a href="/accounts/logout">Logout</a></p>
             <p style="color: rgb(238, 252, 238);" class="mx-3 mb-1">Hello {{user.first_name}}</p>
 
             {% else %}
-            <p style="color: rgb(240, 255, 240);" class="mx-2 ml-3 mb-1"><a href="accounts/register">Register</a></p>
-            <p class="mx-2 mb-1"><a href="accounts/login">Login</a></p>
+            <p style="color: rgb(240, 255, 240);" class="mx-2 ml-3 mb-1"><a href="/accounts/register">Register</a></p>
+            <p class="mx-2 mb-1"><a href="/accounts/login">Login</a></p>
             {% endif %}
 
 
