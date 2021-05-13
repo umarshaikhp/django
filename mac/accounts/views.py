@@ -74,3 +74,6 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def recovery(request):
+    return render(request,"account-recovery.html")    
