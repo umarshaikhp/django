@@ -1,4 +1,10 @@
+from django.core import mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.core.mail import send_mail
 from django.shortcuts import render
+from django.contrib.auth.hashers import make_password
+
 
 # Create your views here.
 
@@ -75,5 +81,50 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
+
 def recovery(request):
-    return render(request,"account-recovery.html")    
+    if request.method == 'POST':
+
+            email1 = request.POST['email']
+            print(email1)
+            if User.objects.filter(email=email1).exists():
+                print(User.objects.filter(email=email1))
+                request.session['email']= email1
+                recoveryAccount = User.objects.get(email=email1)
+                
+                subject = 'myawesome send something'
+                html_message = render_to_string('account-recovered.html')
+                plain_message = strip_tags(html_message)
+                from_email = 'From <umarfala1234@gmail.com>'
+                to = email1
+                res = mail.send_mail(subject, plain_message, from_email, [to], html_message=html_message)
+
+                if(res == 1):  
+                        msg = "Mail Sent Successfuly"  
+                else:  
+                        msg = "Mail could not sent"
+            else:
+                 user = User.objects.filter(email=email1)
+                 print(user)    
+
+    return render(request,"account-recovery.html",{'recoveryAccount':recoveryAccount})    
+
+def recover(request):
+
+    if request.method == 'POST':
+
+       password =  request.POST['password']
+       password1 =  request.POST['password1']
+
+       if password == password1:
+            print("umar shaikh")
+            email = request.session['email']
+            user = User.objects.get(email=email)
+            print(user.password)
+            user.password=make_password(password1)
+            user.save()    
+            
+
+
+
+    return render(request,'account-recover.html')
