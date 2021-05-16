@@ -19,23 +19,26 @@
          }
         div.center1 {
             position: absolute;
-            border-radius: 10px;
+            border-radius: 14px;
             top: 110px;
             border: 4px;
-            width: 25%;
-            height: 210px;
+            width: 24%;
+            height: 260px;
             margin-left: 450px;
+            padding-top: 30px;
         }
         div.center2{
             margin: auto;
+            padding-left: 30px;
+            padding-right: 30px;
 
         }
         div.center3{
-            margin-left: 44px;
+            margin-left: 30px;
         }
         span.small{
             font-size:small;
-            margin-left: 45px;
+            margin-left: 31px;
         }
     
         
@@ -48,7 +51,7 @@
         {% csrf_token %}
 
         <div class="container-fluid center">
-            <div class="center1 shadow pt-3">
+            <div class="center1 shadow">
             <b><span class="small">Forgot your account’s password or having </span> <span class="small">some trouble into your Team? Enter your</span> <span class="small small1"> address and we’ll send you a recovery link.</span></b>
                 <div class="center2">
                    <b> <label for="email" class="mt-3">Email</label></b>

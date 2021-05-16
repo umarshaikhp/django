@@ -53,14 +53,16 @@
             <div>
                 <div class="shadow center1">
 
-                    <div class="center2"> We received an account recovery request on Stack MyawesomeCart for {{recoveryAccount.username}}</div>
+                    <div class="center2" style="text-decoration:none"> We received an account recovery request on MyawesomeCart for {{accountRecovery.email}}</div>
             
     
                     <div class="center3"> If you initiated this request,<a href="http://127.0.0.1:8000/accounts/reset" style="text-decoration:none"> reset your password here.</a></div>
-                    <div class="center4">You can use any of the following credentials to log in to <a href="/accounts/login" style="text-decoration:none"> your account:</a> </div>
+                    <div class="center4">You can use any of the following credentials to <a href="http://127.0.0.1:8000/accounts/login" style="text-decoration:none">log in to  your account:</a> </div>
                     <ul class="bullet">
-                            <li>Email and Password (umarfala1234@gmail.com)</li>
-                            <li>GitHub Account (umarfala1234@gmail.com)</li>
+                        
+                           <li style="text-decoration: none;"> Email and Password ({{accountRecovery.email}})</li>
+                            <li>GitHub Account ({{accountRecovery.email}})</li>
+                            
                     </ul>
                     <div class="center5">Once logged in, you can review existing credentials and add new ones. Simply visit your</div>
                     <div class="center6">click on Edit Profile & Settings and My Logins.</div>

@@ -88,12 +88,12 @@ def recovery(request):
             email1 = request.POST['email']
             print(email1)
             if User.objects.filter(email=email1).exists():
-                print(User.objects.filter(email=email1))
                 request.session['email']= email1
-                recoveryAccount = User.objects.get(email=email1)
+                accountRecovery = User.objects.get(email=email1)
+                print(accountRecovery)
                 
                 subject = 'myawesome send something'
-                html_message = render_to_string('account-recovered.html')
+                html_message = render_to_string('account-recovered.html',{'accountRecovery': accountRecovery})
                 plain_message = strip_tags(html_message)
                 from_email = 'From <umarfala1234@gmail.com>'
                 to = email1
@@ -107,7 +107,7 @@ def recovery(request):
                  user = User.objects.filter(email=email1)
                  print(user)    
 
-    return render(request,"account-recovery.html",{'recoveryAccount':recoveryAccount})    
+    return render(request,"account-recovery.html")    
 
 def recover(request):
 
