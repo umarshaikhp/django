@@ -61,7 +61,7 @@ def login(request):
         # auth object method autheticated that is used to check the user is authenticated or not 
         # if user is autheticated then it will return user object otherwise it will return None
         user = auth.authenticate(request,username=user1,password=pass1)
-        print(user)
+        print("login hrllo",user)
 
         print("authenticate time",user)
         # print("filter time",user2)    
@@ -70,7 +70,7 @@ def login(request):
             auth.login(request,user)
             return redirect("/")
         else:
-            messages.info(request,"Invalid Credentials")  
+            messages.error(request,"Invalid Credentials")  
             return redirect('login')
     else : 
         print("hii")   
@@ -99,6 +99,8 @@ def recovery(request):
                 to = email1
                 res = mail.send_mail(subject, plain_message, from_email, [to], html_message=html_message)
 
+                return render(request,'mail-success.html')
+
                 if(res == 1):  
                         msg = "Mail Sent Successfuly"  
                 else:  
@@ -124,7 +126,4 @@ def recover(request):
             user.password=make_password(password1)
             user.save()    
             
-
-
-
     return render(request,'account-recover.html')
