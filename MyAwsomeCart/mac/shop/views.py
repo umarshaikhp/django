@@ -124,13 +124,14 @@ def tracker(request):
                 update = OrderUpdate.objects.filter(order_id=orderId)
                 updates = []
                 for item in update:
+                    print("success")
                     updates.append({'text':item.update_desc, 'time':item.timestamp})
                     response = json.dumps({"status":"success", "updates":updates, "itemsJson":order[0].items_json} , default=str)
                 def mail():
                     emails = Orders.objects.get(email = email)
                     desc   = OrderUpdate.objects.get(order_id = orderId)
                     subject = "Your Order Status"  
-                    msg     =   desc.update_desc
+                    msg     =   desc.update_desc 
                     to      = emails.email  
                     res     = send_mail(subject, msg, settings.EMAIL_HOST_USER, [to])      
                     if(res == 1):  
@@ -144,7 +145,7 @@ def tracker(request):
                 return HttpResponse('{"status":"noitems"}')
         except Exception as e:
             print(e)
-            return HttpResponse('{"status":"error"}')
+            return HttpResponse(e)
                                                
     return render(request,'shop/tracker.html')
 

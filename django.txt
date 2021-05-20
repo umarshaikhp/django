@@ -1,0 +1,6 @@
+staticcollect ->for collecting static file to other folder means django folder
+workon -> for activate virtual enviorment
+python manage.py sqlmigrate travello migrationfile name ->it will show you sql generating query for table which is created
+pip install psycop2 -for installing postgrey
+python manage.py help -> it will give you command list
+pip install django==2.0 -> particular installing command
