@@ -47,7 +47,7 @@
         }
 
         a {
-            padding-left: 56px;
+            padding-left: 69px;
             font-size: 12px;
         }
 
@@ -121,30 +121,54 @@
             margin-left: 390px;
 
             border-color: rgb(109, 28, 184);
-            
         }
+        small{
+            font-size: 11px;
+            color: red;
+        }
+.btn-facebook:active,
+.btn-facebook:focus,
+.btn-facebook:active{
+  background-image: none;
+  outline: 0;
+  box-shadow: none;
+}
+.btn-github:active,
+.btn-github:focus,
+.btn-github:active{
+  background-image: none;
+  outline: 0;
+  box-shadow: none;
+}
+.btn-google:active,
+.btn-google:focus,
+.btn-google:active{
+  background-image: none;
+  outline: 0;
+  box-shadow: none;
+}
     </style>
 
 <body>
 
-    <form action="login" method="POST">
+    <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
 
         <div class="container center">
             <div class="github">
-                <a class="btn btn-social-icon btn-twitter">
-                    <span class="fa fa-github">  Log in with Github
+                <a href="{% url 'social:begin' 'github' %}" class="btn btn-social-icon btn-facebook">
+                    <span class="fa fa-github">  Log in with Github</span>
                   </a>
             </div>
 
             <div class="github">
-                <a class="btn btn-social-icon btn-github">
-                    <span class="fa fa-facebook">  Log in with Facebook
+                <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-social-icon btn-github">
+                    <span class="fa fa-facebook">  Log in with Facebook</span>
                   </a>
             </div>
 
             <div class="github google1">
-                <a class="btn btn-social-icon btn-google">
+                <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-social-icon btn-google">
                    <span class="fa fa-google">  Log in with Google</span>
                  </a>
                 
@@ -154,18 +178,25 @@
             <div class="shadow center2">
 
                 <div style="font-weight: 400;" class="center3" style="margin-top: 50px;">
-                    Username<input type="text" name="username" size="25">
+                    
+                    Username<input type="text" name="username" size="28">
+                    <small>
+                        {% for message in messages %}
+                        {{message}}
+                        {% endfor %}
+
+                    </small>  
                 </div>
 
                 <div class="center4" style="font-weight: 400;">
-                    Password <a href="/accounts/account-recovery" style="text-decoration: none;">Forgot password</a>
+                    Password <a href="/accounts/account-recovery" style="text-decoration: none;">Forgot Password?</a>
                 </div>
                 <div class="forgotinput">
-                    <input type="password" name="password" size="25">
+                    <input type="password" name="password" size="28">
                 </div>
 
                 <div class="center5">
-                    <input type="submit" value="log in" class="btn btn-primary" style="width: 220px;">
+                    <input type="submit" value="log in" class="btn btn-primary" style="width: 240px;">
                 </div>
             </div>
         </div>
@@ -179,10 +210,10 @@
 
 
 
-
-    {% for message in messages %}
+<!-- priniting error messages below line -->
+    <!-- {% for message in messages %}
     <h3>{{message}}</h3>
-    {% endfor %}
+    {% endfor %} -->
 
     </div>
 

@@ -70,7 +70,7 @@ def login(request):
             auth.login(request,user)
             return redirect("/")
         else:
-            messages.error(request,"Invalid Credentials")  
+            messages.error(request,"The username or password is incorrect")  
             return redirect('login')
     else : 
         print("hii")   

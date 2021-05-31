@@ -40,17 +40,18 @@
             </ul>
 
             <form  method ='get' action='/shop/search' class="form-inline my-2 my-lg-0">
-                <input style="width: 440px;" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+                <input style="width: 400px;" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
 
             {% if user.is_authenticated %}
+
+            <p style="color: rgb(238, 252, 238);" class="mx-3 mb-1">{{user.username}}</p>
             <p style="color: rgb(226, 243, 226);" class="ml-3 mb-1"><a class="nav-link" style="color: rgb(102, 177, 177);" href="/accounts/logout">Logout</a></p>
-            <p style="color: rgb(238, 252, 238);" class="mx-3 mb-1">Hello {{user.first_name}}</p>
 
             {% else %}
-            <p  class="mx-2 ml-3 mb-1"><a class="nav-link" style="color: rgb(97, 185, 185);" href="/accounts/register">Register</a></p>
-            <p class="mx-2 mb-1"><a  class="nav-link" style="color: rgb(33, 182, 182);" href="/accounts/login">Login</a></p>
+            <p  class="mr-1 ml-3 mb-1"><a class="nav-link" style="color: rgb(97, 185, 185);" href="/accounts/login">Login</a></p>
+            <p class="mx-1 mb-1"><a  class="nav-link" style="color: rgb(33, 182, 182);" href="/accounts/register">Register</a></p>
             {% endif %}
 
 
