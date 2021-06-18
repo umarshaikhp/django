@@ -10,7 +10,7 @@
             </ul>
             <nav aria-label="breadcrumb">
   <ol class="breadcrumb mt-3">
-    <li class="breadcrumb-item active" aria-current="page">Your Total Cart Is <b>Rs.<span id="totalPrice"></span></b>. Enter Your Details below & place order. Thanks for using My Awesome Cart</li>
+    <li class="breadcrumb-item active" aria-current="page">Your Total Cart Is <b> Rs. <span id="totalPrice"></span></b>. Enter Your Details below & place order. Thanks for using My Awesome Cart</li>
   </ol>
 </nav>  
         </div>
@@ -22,6 +22,7 @@
         <!-- if onsubmit is false so your form will not be submitted -->
         <form method="post" action="/shop/checkout" > {% csrf_token %}
             <input type="hidden" name="itemsJson" id="itemsJson">
+            <input type="hidden" name="amount" id="amount">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Name</label>
@@ -109,5 +110,6 @@ alert('Thanks for ordering with us.Your order id is {{id}} Use it to track your 
 localStorage.clear();
 document.location = "/shop" 
 {% endif %}
+$('#amount').val($('#totalPrice').html())
 </script>
 {% endblock %}

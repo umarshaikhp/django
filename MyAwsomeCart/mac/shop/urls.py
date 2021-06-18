@@ -13,5 +13,6 @@ urlpatterns = [
     # use the <>angle brackets to capture the value from the URL
     path("products/<int:myid>", views.productview, name="ProductView"),
     path("checkout", views.checkout, name="Checkout"),
+    path("handlerequest/", views.handlerequest, name="handlerequest"),
    
 ]
